@@ -5,9 +5,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActionArea from '@mui/material/CardActionArea';
 
-const ProductListing = ({ lists }) => {
+const ProductListing = ({ lists, setCart }) => {
 
-    
+    const addToCart = (product) =>{
+        setCart((prevItem) => [...prevItem, product]);
+      };
     return (
         <>
             <Box sx={{ width: "100%" }}>
@@ -35,7 +37,7 @@ const ProductListing = ({ lists }) => {
                                     <Typography gutterBottom variant="body2" component="div">
                                       Rating:{item.rating.rate} Count:{item.rating.count}
                                     </Typography>
-                                   <Button variant='contained' color='warning'>Add TO Cart</Button>
+                                   <Button variant='contained' color='warning' onClick={() => addToCart(item)}>Add TO Cart</Button>
                                     
                                 </CardContent>
                             </CardActionArea>
