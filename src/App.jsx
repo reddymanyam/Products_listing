@@ -6,16 +6,15 @@ import axios from 'axios'
 
 const App = () => {
   const [lists, setLists] = useState([]);
-
-  const addToCart = () => {
-         
-  }
+  const [cart, setCart] = useState([]);
+  
+ 
 
   const getData = async () => {
     try {
       const response = await axios.get("https://fakestoreapi.com/products");
       setLists(response.data)
-      console.log(response.data)
+     
 
     }
     catch {
@@ -23,17 +22,19 @@ const App = () => {
 
     }
   }
+
   useEffect(() => {
     getData();
   }, [])
+
   return (
     <>
       <Box sx={{ display: "flex", Width: "100%", justifyContent: "space-between" }}>
         <Box sx={{ border: '1px solid black', height: "auto", width: "40%", margin: '50px' }}>
-          <ProductListing lists={lists} />
+          <ProductListing lists={lists} setCart={setCart} />
         </Box>
         <Box sx={{ border: '1px solid black', height: "auto", width: "40%", margin: "50px" }}>
-          <ProductCard />
+          <ProductCard cart={cart} />
         </Box>
       </Box>
     </>
