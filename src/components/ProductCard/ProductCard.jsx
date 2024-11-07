@@ -4,6 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActionArea from '@mui/material/CardActionArea';
+import ProductListing from '../ProductListing/ProductListing';
 
 const ProductCard = ({cart}) => {
   return (
@@ -13,8 +14,6 @@ const ProductCard = ({cart}) => {
       {
          (cart.length > 0 ) ? (
           cart.map((item) => (
-
-
               <Card sx={{ maxWidth: 250, p:1, ml:10 , mb:5 }}>
                   <CardActionArea>
                       <CardMedia
