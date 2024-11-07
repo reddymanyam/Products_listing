@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import ProductListing from './components/ProductListing/ProductListing'
 import ProductCard from './components/ProductCard/ProductCard'
@@ -6,10 +6,7 @@ import axios from 'axios'
 
 const App = () => {
   const [lists, setLists] = useState([]);
-
-  const addToCart = () => {
-         
-  }
+  const [cart, setCart] = useState([]);
 
   const getData = async () => {
     try {
@@ -20,20 +17,21 @@ const App = () => {
     }
     catch {
       (err) => alert(`https://www.error is, ${err}`)
-
     }
   }
+
   useEffect(() => {
     getData();
   }, [])
+
   return (
     <>
       <Box sx={{ display: "flex", Width: "100%", justifyContent: "space-between" }}>
         <Box sx={{ border: '1px solid black', height: "auto", width: "40%", margin: '50px' }}>
-          <ProductListing lists={lists} />
+          <ProductListing lists={lists} cart={cart} setCart={setCart} />
         </Box>
         <Box sx={{ border: '1px solid black', height: "auto", width: "40%", margin: "50px" }}>
-          <ProductCard />
+          <ProductCard cart={cart} />
         </Box>
       </Box>
     </>
