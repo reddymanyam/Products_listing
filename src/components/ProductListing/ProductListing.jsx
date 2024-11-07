@@ -5,14 +5,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActionArea from '@mui/material/CardActionArea';
 
-const ProductListing = ({ lists, setCart, cart }) => {
+const ProductListing = ({ lists }) => {
 
-    const handleaddtocart = (id) =>{
-        setCart((prev)=>[...prev, lists]);
-        console.log("item is added");
-        console.log("updated cart is",cart)
-        
-    }
+    
     return (
         <>
             <Box sx={{ width: "100%" }}>
@@ -40,7 +35,7 @@ const ProductListing = ({ lists, setCart, cart }) => {
                                     <Typography gutterBottom variant="body2" component="div">
                                       Rating:{item.rating.rate} Count:{item.rating.count}
                                     </Typography>
-                                   <Button variant='contained' color='warning' onClick={()=>handleaddtocart(item.id)}>Add TO Cart</Button>
+                                   <Button variant='contained' color='warning'>Add TO Cart</Button>
                                     
                                 </CardContent>
                             </CardActionArea>
